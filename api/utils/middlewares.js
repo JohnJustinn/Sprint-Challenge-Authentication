@@ -7,6 +7,7 @@ const SaltRounds = 11;
 
 const authenticate = (req, res, next) => {
   const token = req.get('Authorization');
+  console.log(req);
   if (token) {
     jwt.verify(token, mysecret, (err, decoded) => {
       if (err) return res.status(422).json(err);
